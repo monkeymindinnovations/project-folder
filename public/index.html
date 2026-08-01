@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantasySexStories - Mega Portal (Videos, Stories, Galleries)</title>
+    <!-- Linking our external CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* EXTRA MEGA PORTAL STYLES (Added to supplement style.css) */
+        .mega-section { padding: 50px 20px; border-top: 1px solid rgba(255, 0, 127, 0.2); }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-left: 5px solid var(--theme-pink); padding-left: 15px; }
+        .section-header h2 { font-size: 32px; color: var(--theme-yellow); text-transform: uppercase; margin: 0; }
+        .view-all { color: var(--theme-white); text-decoration: none; font-size: 14px; background: var(--theme-pink); padding: 5px 15px; border-radius: 20px; transition: 0.3s; }
+        .view-all:hover { background: var(--theme-yellow); color: #000; }
+        
+        /* Video & Image Gallery Grids */
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .media-card { position: relative; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--theme-pink); transition: 0.3s; cursor: pointer; }
+        .media-card:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--theme-pink); z-index: 10; }
+        .media-thumb { width: 100%; height: 180px; object-fit: cover; opacity: 0.7; transition: 0.3s; }
+        .media-card:hover .media-thumb { opacity: 1; }
+        .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; color: rgba(255, 255, 255, 0.8); }
+        .media-card:hover .play-icon { color: var(--theme-yellow); }
+        .media-title { position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-size: 14px; font-weight: bold; }
+        
+        /* 50 Categories Mega Grid */
+        .cat-mega-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+        .cat-box { background: rgba(30, 10, 20, 0.8); border: 1px solid var(--theme-pink); padding: 15px; text-align: center; border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: white; }
+        .cat-box i { font-size: 24px; color: var(--theme-yellow); margin-bottom: 10px; }
+        .cat-box:hover { background: var(--theme-pink); border-color: var(--theme-yellow); transform: translateY(-5px); }
+        
+        /* Story List View */
+        .story-list { display: flex; flex-direction: column; gap: 15px; }
+        .list-item { display: flex; gap: 20px; background: var(--glass-bg); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,215,0,0.3); transition: 0.3s; align-items: center; }
+        .list-item:hover { border-color: var(--theme-pink); background: rgba(255,0,127,0.1); }
+        .list-thumb { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; border: 2px solid var(--theme-pink); }
+        
+        /* Hero Banner Search */
+        .hero-search { margin-top: 20px; display: flex; justify-content: center; width: 100%; max-width: 600px; }
+        .hero-search input { width: 70%; padding: 15px; border: none; border-radius: 25px 0 0 25px; outline: none; font-size: 16px; }
+        .hero-search button { width: 30%; padding: 15px; border: none; border-radius: 0 25px 25px 0; background: var(--theme-pink); color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .hero-search button:hover { background: var(--theme-yellow); color: black; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION -->
+    <nav>
+        <a href="index.html" class="logo">FantasyStories <span style="font-size: 14px; color: white; text-shadow: none;">PRO</span></a>
+        <div class="nav-links">
+            <a href="#stories"><i class="fas fa-book"></i> कहानियाँ</a>
+            <a href="#videos"><i class="fas fa-play-circle"></i> वीडियो</a>
+            <a href="#galleries"><i class="fas fa-images"></i> गैलरी</a>
+            <a href="#categories"><i class="fas fa-list"></i> 50 कैटेगरीज</a>
+            <a href="admin.html" style="color: var(--theme-pink); border: 1px solid var(--theme-pink); padding: 5px 15px; border-radius: 20px;">Admin</a>
+        </div>
+    </nav>
+
+    <!-- MEGA HERO SECTION -->
+    <header class="mega-section" style="background: linear-gradient(to bottom, rgba(10, 5, 15, 0.9), rgba(255, 0, 127, 0.2)), url('https://source.unsplash.com/random/1600x900/?neon,dark,sensual') center/cover; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="font-size: 60px; color: var(--theme-yellow); text-shadow: 0 0 20px rgba(255,0,127,0.8); margin-bottom: 20px; font-family: 'Kalam', cursive;">भारत का सबसे हॉट फैंटेसी पोर्टल</h1>
+        <p style="font-size: 22px; max-width: 800px; color: #ddd; margin-bottom: 30px;">यहाँ आपको मिलेंगी 1000+ से अधिक लम्बी हॉट कहानियाँ, एक्सक्लूसिव वीडियो और फुल HD इमेज गैलरी। अपनी फैंटेसी चुनें और खो जाएँ...</p>
+        
+        <!-- Search Bar -->
+        <div class="hero-search">
+            <input type="text" placeholder="सर्च करें अपनी मनपसंद कहानी या केटेगरी...">
+            <button><i class="fas fa-search"></i> खोजें</button>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <a href="#videos" class="btn" style="background: var(--theme-yellow); color: black;">वीडियो देखें</a>
+            <a href="#stories" class="btn">कहानियाँ पढ़ें</a>
+        </div>
+    </header>
+
+    <div class="main-wrapper" style="max-width: 1400px; margin: 0 auto;">
+
+        <!-- 1. PREMIUM VIDEO SECTION -->
+        <section id="videos" class="mega-section">
+            <div class="section-header">
+                <h2><i class="fas fa-video" style="color: var(--theme-pink);"></i> एक्सक्लूसिव हॉट वीडियोज़</h2>
+                <a href="#" class="view-all">सभी वीडियो देखें &rarr;</a>
+            </div>
+            <div class="media-grid">
+                <!-- Video Cards (Repeat to create massive content) -->
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?couple,dark" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">देसी भाभी का प्राइवेट MMS (1080p)</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?bedroom,neon" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">होटल रूम सीक्रेट कैमरा - पार्ट 1</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?romance,rain" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">बारिश में कॉलेज गर्ल का रोमांस</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?model,lingerie" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">हॉट वाइफ स्वैपिंग पार्टी वीडियो</div>
+                </a>
+                <!-- Adding 4 more to make it robust -->
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?club,party" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">बैचलर पार्टी स्ट्रिपर डांस</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?massage,spa" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">स्पा में थाई मसाज और हैप्पी एंडिंग</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?office,secretary" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">बॉस के केबिन में सेक्रेटरी</div>
+                </a>
+                <a href="#" class="media-card">
+                    <img src="https://source.unsplash.com/random/400x300/?gym,fitness" class="media-thumb" alt="Video">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <div class="media-title">जिम ट्रेनर के साथ हॉट वर्कआउट</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. BEST STORIES OF THE WEEK -->
+        <section id="stories" class="mega-section">
+            <div class="section-header">
+                <h2><i class="fas fa-fire" style="color: var(--theme-pink);"></i> इस हफ्ते की बेस्ट कहानियाँ</h2>
+                <a href="#" class="view-all">सभी कहानियाँ पढ़ें &rarr;</a>
+            </div>
+            
+            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                <!-- Main Featured Story (Large) -->
+                <div class="card" style="flex: 2; min-width: 300px; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('https://source.unsplash.com/random/600x400/?sensual,bed') center/cover; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;">
+                    <span class="tag" style="background: var(--theme-yellow); color: black;">टॉप रेटेड - 5000+ शब्द</span>
+                    <h3 style="font-size: 32px; color: white;">पड़ोसन आंटी की रात की प्यास</h3>
+                    <p style="color: #ccc; margin-bottom: 20px;">मेरे पड़ोस में रहने वाली कविता आंटी के पति दुबई में रहते हैं। एक रात जब लाइट गई तो वो मेरे घर मदद मांगने आईं। उनके भीगे बदन ने उस रात जो आग लगाई...</p>
+                    <a href="story1.html" class="btn" style="width: 200px;">अभी पढ़ें</a>
+                </div>
+
+                <!-- Story List (Right Side) -->
+                <div class="story-list" style="flex: 1; min-width: 300px;">
+                    <a href="story1.html" class="list-item" style="text-decoration: none;">
+                        <img src="https://source.unsplash.com/random/100x100/?woman,saree" class="list-thumb">
+                        <div>
+                            <span style="color: var(--theme-pink); font-size: 12px; font-weight:bold;">देवर-भाभी</span>
+                            <h4 style="color: var(--theme-yellow); margin: 5px 0; font-size: 18px;">भाभी की गुलाबी साड़ी</h4>
+                            <p style="color: #aaa; font-size: 12px; margin:0;">सुमित की नजर अपनी भाभी पर पड़ी...</p>
+                        </div>
+                    </a>
+                    <a href="story1.html" class="list-item" style="text-decoration: none;">
+                        <img src="https://source.unsplash.com/random/100x100/?office,desk" class="list-thumb">
+                        <div>
+                            <span style="color: var(--theme-pink); font-size: 12px; font-weight:bold;">ऑफिस रोमांस</span>
+                            <h4 style="color: var(--theme-yellow); margin: 5px 0; font-size: 18px;">ओवरटाइम का फायदा</h4>
+                            <p style="color: #aaa; font-size: 12px; margin:0;">रात के 10 बजे बॉस के केबिन में...</p>
+                        </div>
+                    </a>
+                    <a href="story1.html" class="list-item" style="text-decoration: none;">
+                        <img src="https://source.unsplash.com/random/100x100/?hotel,night" class="list-thumb">
+                        <div>
+                            <span style="color: var(--theme-pink); font-size: 12px; font-weight:bold;">हनीमून</span>
+                            <h4 style="color: var(--theme-yellow); margin: 5px 0; font-size: 18px;">मनाली का वो हसीन कमरा</h4>
+                            <p style="color: #aaa; font-size: 12px; margin:0;">बर्फीली वादियों में पहली रात...</p>
+                        </div>
+                    </a>
+                    <a href="story1.html" class="list-item" style="text-decoration: none;">
+                        <img src="https://source.unsplash.com/random/100x100/?maid,cleaning" class="list-thumb">
+                        <div>
+                            <span style="color: var(--theme-pink); font-size: 12px; font-weight:bold;">नौकरानी</span>
+                            <h4 style="color: var(--theme-yellow); margin: 5px 0; font-size: 18px;">कामवाली मुन्नी की मालिश</h4>
+                            <p style="color: #aaa; font-size: 12px; margin:0;">जब मालकिन घर पर नहीं थी...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MEGA IMAGE GALLERY -->
+        <section id="galleries" class="mega-section">
+            <div class="section-header">
+                <h2><i class="fas fa-camera-retro" style="color: var(--theme-pink);"></i> फुल HD इमेज गैलरी (18+)</h2>
+                <a href="#" class="view-all">सभी गैलरी देखें &rarr;</a>
+            </div>
+            <div class="media-grid">
+                <a href="#" class="media-card"><img src="https://source.unsplash.com/random/400x300/?saree,sensual" class="media-thumb"><div class="media-title"><i class="fas fa-image"></i> देसी भाभी गैलरी (50 Photos)</div></a>
+                <a href="#" class="media-card"><img src="https://source.unsplash.com/random/400x300/?bikini,pool" class="media-thumb"><div class="media-title"><i class="fas fa-image"></i> स्विमिंग पूल गर्ल्स (40 Photos)</div></a>
+                <a href="#" class="media-card"><img src="https://source.unsplash.com/random/400x300/?lingerie,bed" class="media-thumb"><div class="media-title"><i class="fas fa-image"></i> हनीमून सूट स्पेशल (35 Photos)</div></a>
+                <a href="#" class="media-card"><img src="https://source.unsplash.com/random/400x300/?model,indian" class="media-thumb"><div class="media-title"><i class="fas fa-image"></i> कॉलेज गर्ल्स प्राइवेट शूट (60 Photos)</div></a>
+            </div>
+        </section>
+
+        <!-- 4. ALL 50 CATEGORIES GRID (The Core Requirement) -->
+        <section id="categories" class="mega-section">
+            <div class="section-header">
+                <h2><i class="fas fa-th" style="color: var(--theme-pink);"></i> एक्सप्लोर 50+ हॉट कैटेगरीज</h2>
+            </div>
+            
+            <div class="cat-mega-grid">
+                <!-- Generating all 50 categories meticulously -->
+                <a href="#" class="cat-box"><i class="fas fa-bed"></i> 1. पहली रात</a>
+                <a href="#" class="cat-box"><i class="fas fa-ring"></i> 2. देवर-भाभी</a>
+                <a href="#" class="cat-box"><i class="fas fa-glass-cheers"></i> 3. जीजा-साली</a>
+                <a href="#" class="cat-box"><i class="fas fa-briefcase"></i> 4. ऑफिस रोमांस</a>
+                <a href="#" class="cat-box"><i class="fas fa-user-tie"></i> 5. बॉस और सेक्रेटरी</a>
+                <a href="#" class="cat-box"><i class="fas fa-graduation-cap"></i> 6. कॉलेज के दिन</a>
+                <a href="#" class="cat-box"><i class="fas fa-home"></i> 7. पड़ोसन</a>
+                <a href="#" class="cat-box"><i class="fas fa-chalkboard-teacher"></i> 8. टीचर-स्टूडेंट</a>
+                <a href="#" class="cat-box"><i class="fas fa-stethoscope"></i> 9. डॉक्टर-पेशेंट</a>
+                <a href="#" class="cat-box"><i class="fas fa-broom"></i> 10. नौकरानी</a>
+                <a href="#" class="cat-box"><i class="fas fa-female"></i> 11. आंटी</a>
+                <a href="#" class="cat-box"><i class="fas fa-users"></i> 12. कजिन</a>
+                <a href="#" class="cat-box"><i class="fas fa-magic"></i> 13. फैंटेसी</a>
+                <a href="#" class="cat-box"><i class="fas fa-venus-venus"></i> 14. लेस्बियन</a>
+                <a href="#" class="cat-box"><i class="fas fa-mars-mars"></i> 15. गे</a>
+                <a href="#" class="cat-box"><i class="fas fa-users"></i> 16. थ्रीसम</a>
+                <a href="#" class="cat-box"><i class="fas fa-layer-group"></i> 17. ग्रुप सेक्स</a>
+                <a href="#" class="cat-box"><i class="fas fa-link"></i> 18. बीड़ीएसएम</a>
+                <a href="#" class="cat-box"><i class="fas fa-theater-masks"></i> 19. रोल प्ले</a>
+                <a href="#" class="cat-box"><i class="fas fa-fire"></i> 20. हॉट वाइफ</a>
+                <a href="#" class="cat-box"><i class="fas fa-eye"></i> 21. ककहोल्ड</a>
+                <a href="#" class="cat-box"><i class="fas fa-heart"></i> 22. वर्जिनिटी</a>
+                <a href="#" class="cat-box"><i class="fas fa-plane"></i> 23. हनीमून</a>
+                <a href="#" class="cat-box"><i class="fas fa-user-secret"></i> 24. अनजान अजनबी</a>
+                <a href="#" class="cat-box"><i class="fas fa-spa"></i> 25. मसाज पार्लर</a>
+                <a href="#" class="cat-box"><i class="fas fa-tractor"></i> 26. देसी गांव</a>
+                <a href="#" class="cat-box"><i class="fas fa-train"></i> 27. ट्रेन का सफर</a>
+                <a href="#" class="cat-box"><i class="fas fa-bus"></i> 28. बस की सवारी</a>
+                <a href="#" class="cat-box"><i class="fas fa-hotel"></i> 29. होटल रूम</a>
+                <a href="#" class="cat-box"><i class="fas fa-bath"></i> 30. बाथरूम रोमांस</a>
+                <a href="#" class="cat-box"><i class="fas fa-swimmer"></i> 31. स्विमिंग पूल</a>
+                <a href="#" class="cat-box"><i class="fas fa-cloud-rain"></i> 32. बारिश की रात</a>
+                <a href="#" class="cat-box"><i class="fas fa-camera"></i> 33. ब्लैकमेल</a>
+                <a href="#" class="cat-box"><i class="fas fa-skull"></i> 34. रिवेंज</a>
+                <a href="#" class="cat-box"><i class="fas fa-heart-broken"></i> 35. धोखेबाज पति/पत्नी</a>
+                <a href="#" class="cat-box"><i class="fas fa-wine-glass"></i> 36. मिलफ</a>
+                <a href="#" class="cat-box"><i class="fas fa-money-bill-wave"></i> 37. शुगर डैडी</a>
+                <a href="#" class="cat-box"><i class="fas fa-headphones"></i> 38. ऑडियो स्टोरी</a>
+                <a href="#" class="cat-box"><i class="fas fa-film"></i> 39. वीडियो स्टोरी</a>
+                <a href="#" class="cat-box"><i class="fas fa-images"></i> 40. फोटो गैलरी</a>
+                <a href="#" class="cat-box"><i class="fas fa-feather"></i> 41. कामुक कविताएँ</a>
+                <a href="#" class="cat-box"><i class="fas fa-book-open"></i> 42. सच्ची घटनाएँ</a>
+                <a href="#" class="cat-box"><i class="fas fa-ghost"></i> 43. हॉरर और सेक्स</a>
+                <a href="#" class="cat-box"><i class="fas fa-user-ninja"></i> 44. सस्पेंस थ्रिलर</a>
+                <a href="#" class="cat-box"><i class="fas fa-globe"></i> 45. विदेशी</a>
+                <a href="#" class="cat-box"><i class="fas fa-dumbbell"></i> 46. जिम ट्रेनर</a>
+                <a href="#" class="cat-box"><i class="fas fa-motorcycle"></i> 47. डिलीवरी बॉय</a>
+                <a href="#" class="cat-box"><i class="fas fa-female"></i> 48. सहेली की माँ</a>
+                <a href="#" class="cat-box"><i class="fas fa-user-friends"></i> 49. दोस्त की बहन</a>
+                <a href="#" class="cat-box"><i class="fas fa-user-lock"></i> 50. गुप्त रिश्ते</a>
+            </div>
+        </section>
+
+        <!-- 5. DEEP FANTASIES & ROLEPLAY SECTION -->
+        <section class="mega-section">
+            <div class="section-header">
+                <h2><i class="fas fa-mask" style="color: var(--theme-pink);"></i> डार्क फैंटेसी और रोलप्ले</h2>
+            </div>
+            <div class="grid-container">
+                <div class="card" style="border-color: #8a2be2;">
+                    <h3 style="color: #8a2be2;"><i class="fas fa-link"></i> BDSM और डोमिनेशन</h3>
+                    <p>बॉन्डेज, मास्टर्स, और स्लेव की एक्सट्रीम कहानियाँ। क्या आप इस दर्द भरे मजे के लिए तैयार हैं?</p>
+                    <a href="#" class="btn" style="background: #8a2be2;">कहानियाँ पढ़ें</a>
+                </div>
+                <div class="card" style="border-color: #ff4500;">
+                    <h3 style="color: #ff4500;"><i class="fas fa-theater-masks"></i> कॉप और चोर रोलप्ले</h3>
+                    <p>पुलिस ऑफिसर की वर्दी और एक खूबसूरत मुजरिम के बीच इंटेरोगेशन रूम का खौफनाक रोमांस।</p>
+                    <a href="#" class="btn" style="background: #ff4500;">कहानियाँ पढ़ें</a>
+                </div>
+                <div class="card" style="border-color: #00ff7f;">
+                    <h3 style="color: #00ff7f;"><i class="fas fa-user-nurse"></i> डॉक्टर चेकअप</h3>
+                    <p>हॉस्पिटल के बंद दरवाजों के पीछे लेडी डॉक्टर और पेशेंट की प्राइवेट जांच और ट्रीटमेंट।</p>
+                    <a href="#" class="btn" style="background: #00ff7f; color: black;">कहानियाँ पढ़ें</a>
+                </div>
+                <div class="card" style="border-color: #ff1493;">
+                    <h3 style="color: #ff1493;"><i class="fas fa-users"></i> थ्रीसम सरप्राइज</h3>
+                    <p>जब पति अपनी पत्नी के लिए किसी तीसरे को बेडरूम में बुलाता है, तो रात की हदें टूट जाती हैं।</p>
+                    <a href="#" class="btn" style="background: #ff1493;">कहानियाँ पढ़ें</a>
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- End Main Wrapper -->
+
+    <!-- MEGA FOOTER -->
+    <footer style="background: #050208; padding: 60px 20px 20px; border-top: 5px solid var(--theme-pink);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+            
+            <div>
+                <a href="#" class="logo" style="font-size: 28px;">FantasyStories</a>
+                <p style="color: #888; margin-top: 20px; line-height: 1.6;">हम भारत के नंबर 1 फैंटेसी स्टोरी और वीडियो पोर्टल हैं। यहाँ आपको रोज़ाना नया और प्रीमियम 18+ कंटेंट मिलता है।</p>
+            </div>
+            
+            <div>
+                <h3 style="color: var(--theme-yellow); margin-bottom: 20px;">क्विक लिंक्स</h3>
+                <ul style="list-style: none; padding: 0; line-height: 2;">
+                    <li><a href="#" style="color: #aaa; text-decoration: none;">&rarr; आज की नई कहानियाँ</a></li>
+                    <li><a href="#" style="color: #aaa; text-decoration: none;">&rarr; वीडियो गैलरी</a></li>
+                    <li><a href="#" style="color: #aaa; text-decoration: none;">&rarr; टॉप रेटेड ऑथर्स</a></li>
+                    <li><a href="admin.html" style="color: var(--theme-pink); text-decoration: none;">&rarr; कहानी सबमिट करें (Admin)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 style="color: var(--theme-yellow); margin-bottom: 20px;">न्यूज़लेटर ज्वाइन करें</h3>
+                <p style="color: #888; margin-bottom: 15px;">हर रात एक नई हॉट कहानी सीधे अपने ईमेल पर पाएँ!</p>
+                <div style="display: flex;">
+                    <input type="email" placeholder="Email Address" style="padding: 10px; border: none; border-radius: 5px 0 0 5px; width: 70%; outline: none;">
+                    <button style="padding: 10px; border: none; background: var(--theme-pink); color: white; border-radius: 0 5px 5px 0; cursor: pointer; font-weight:bold;">Join</button>
+                </div>
+            </div>
+
+        </div>
+        
+        <div style="text-align: center; border-top: 1px solid #222; padding-top: 20px; color: #555;">
+            <p><strong>चेतावनी:</strong> यह वेबसाइट केवल 18 वर्ष या उससे अधिक उम्र के वयस्कों के लिए है। इस वेबसाइट पर मौजूद सभी पात्र, कहानियाँ और तस्वीरें काल्पनिक (Fiction) हैं।</p>
+            <p style="margin-top: 10px;">&copy; 2026 FantasySexStories Mega Portal. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

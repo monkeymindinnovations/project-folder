@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - FantasyStories</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-form { background: var(--glass-bg); padding: 30px; border-radius: 15px; border: 2px solid var(--theme-yellow); max-width: 700px; margin: 40px auto; }
+        input, select, textarea { width: 95%; padding: 12px; margin: 15px 0; background: rgba(0,0,0,0.5); border: 1px solid var(--theme-pink); color: white; font-size: 16px; border-radius: 8px;}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">FantasyStories</a>
+        <a href="index.html" class="nav-link">← वापस वेबसाइट पर जाएँ</a>
+    </nav>
+
+    <div class="admin-form">
+        <h2 style="color: var(--theme-yellow); text-align:center;">नई पोस्ट पब्लिश करें</h2>
+        <form id="createPostForm">
+            <input type="text" id="title" placeholder="कहानी का शीर्षक (Title)" required>
+            
+            <select id="category" required>
+                <option value="">-- श्रेणी (Category) चुनें --</option>
+                <option value="पहली रात">1. पहली रात</option>
+                <option value="देवर-भाभी">2. देवर-भाभी</option>
+                <option value="जीजा-साली">3. जीजा-साली</option>
+                <option value="ऑफिस रोमांस">4. ऑफिस रोमांस</option>
+                <option value="बॉस और सेक्रेटरी">5. बॉस और सेक्रेटरी</option>
+                <option value="कॉलेज के दिन">6. कॉलेज के दिन</option>
+                <option value="पड़ोसन">7. पड़ोसन</option>
+                <option value="टीचर-स्टूडेंट">8. टीचर-स्टूडेंट</option>
+                <option value="डॉक्टर-पेशेंट">9. डॉक्टर-पेशेंट</option>
+                <option value="नौकरानी">10. नौकरानी</option>
+                <option value="आंटी">11. आंटी</option>
+                <option value="कजिन">12. कजिन</option>
+                <option value="फैंटेसी">13. फैंटेसी</option>
+                <option value="लेस्बियन">14. लेस्बियन</option>
+                <option value="गे">15. गे</option>
+                <option value="थ्रीसम">16. थ्रीसम</option>
+                <option value="ग्रुप सेक्स">17. ग्रुप सेक्स</option>
+                <option value="बीड़ीएसएम">18. बीड़ीएसएम</option>
+                <option value="रोल प्ले">19. रोल प्ले</option>
+                <option value="हॉट वाइफ">20. हॉट वाइफ</option>
+                <option value="ककहोल्ड">21. ककहोल्ड</option>
+                <option value="वर्जिनिटी">22. वर्जिनिटी</option>
+                <option value="हनीमून">23. हनीमून</option>
+                <option value="अनजान अजनबी">24. अनजान अजनबी</option>
+                <option value="मसाज पार्लर">25. मसाज पार्लर</option>
+                <option value="देसी गांव">26. देसी गांव</option>
+                <option value="ट्रेन का सफर">27. ट्रेन का सफर</option>
+                <option value="बस की सवारी">28. बस की सवारी</option>
+                <option value="होटल रूम">29. होटल रूम</option>
+                <option value="बाथरूम रोमांस">30. बाथरूम रोमांस</option>
+                <option value="स्विमिंग पूल">31. स्विमिंग पूल</option>
+                <option value="बारिश की रात">32. बारिश की रात</option>
+                <option value="ब्लैकमेल">33. ब्लैकमेल</option>
+                <option value="रिवेंज">34. रिवेंज</option>
+                <option value="धोखेबाज पति/पत्नी">35. धोखेबाज पति/पत्नी</option>
+                <option value="मिलफ (MILF)">36. मिलफ (MILF)</option>
+                <option value="शुगर डैडी">37. शुगर डैडी</option>
+                <option value="ऑडियो स्टोरी">38. ऑडियो स्टोरी</option>
+                <option value="वीडियो स्टोरी">39. वीडियो स्टोरी</option>
+                <option value="फोटो गैलरी">40. फोटो गैलरी</option>
+                <option value="कामुक कविताएँ">41. कामुक कविताएँ</option>
+                <option value="सच्ची घटनाएँ">42. सच्ची घटनाएँ</option>
+                <option value="हॉरर और सेक्स">43. हॉरर और सेक्स</option>
+                <option value="सस्पेंस थ्रिलर">44. सस्पेंस थ्रिलर</option>
+                <option value="विदेशी">45. विदेशी</option>
+                <option value="जिम ट्रेनर">46. जिम ट्रेनर</option>
+                <option value="डिलीवरी बॉय">47. डिलीवरी बॉय</option>
+                <option value="सहेली की माँ">48. सहेली की माँ</option>
+                <option value="दोस्त की बहन">49. दोस्त की बहन</option>
+                <option value="गुप्त रिश्ते">50. गुप्त रिश्ते</option>
+            </select>
+
+            <textarea id="content" rows="12" placeholder="अपनी कहानी यहाँ लिखें..." required></textarea>
+            
+            <button type="submit" class="btn btn-theme">पोस्ट पब्लिश करें</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('createPostForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPost = {
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                content: document.getElementById('content').value
+            };
+            const response = await fetch('/api/posts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newPost)
+            });
+            if (response.ok) {
+                alert('पोस्ट पब्लिश हो गई!');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
