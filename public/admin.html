@@ -3,102 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - FantasyStories</title>
+    <title>Admin Dashboard - FantasyStories</title>
+    <!-- आपकी थीम की CSS फाइल -->
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        .admin-form { background: var(--glass-bg); padding: 30px; border-radius: 15px; border: 2px solid var(--theme-yellow); max-width: 700px; margin: 40px auto; }
-        input, select, textarea { width: 95%; padding: 12px; margin: 15px 0; background: rgba(0,0,0,0.5); border: 1px solid var(--theme-pink); color: white; font-size: 16px; border-radius: 8px;}
+        /* खास एडमिन पैनल के लिए डिज़ाइन */
+        body {
+            background-color: #11050a; /* Dark theme */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .admin-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(20, 5, 15, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #ff007f; /* Neon Pink Border */
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+        }
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .admin-header h1 {
+            color: #ffd700; /* Yellow */
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ff007f;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #ff007f;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .submit-btn {
+            background: #ff007f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #ffd700;
+            color: black;
+            box-shadow: 0 0 15px #ffd700;
+        }
+        /* सक्सेस मेसेज दिखाने के लिए बॉक्स */
+        #successMessage {
+            display: none;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </nav>
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">FantasyStories</a>
-        <a href="index.html" class="nav-link">← वापस वेबसाइट पर जाएँ</a>
+
+    <!-- नेविगेशन बार -->
+    <nav style="padding: 15px 50px; background: rgba(0,0,0,0.8); border-bottom: 2px solid #ffd700; display: flex; justify-content: space-between;">
+        <a href="index.html" style="color: #ff007f; font-size: 24px; text-decoration: none; font-weight: bold;">FantasyStories PRO</a>
+        <a href="index.html" style="color: white; text-decoration: none; background: #ff007f; padding: 5px 15px; border-radius: 20px;">← वेबसाइट पर वापस जाएँ</a>
     </nav>
 
-    <div class="admin-form">
-        <h2 style="color: var(--theme-yellow); text-align:center;">नई पोस्ट पब्लिश करें</h2>
-        <form id="createPostForm">
-            <input type="text" id="title" placeholder="कहानी का शीर्षक (Title)" required>
-            
-            <select id="category" required>
-                <option value="">-- श्रेणी (Category) चुनें --</option>
-                <option value="पहली रात">1. पहली रात</option>
-                <option value="देवर-भाभी">2. देवर-भाभी</option>
-                <option value="जीजा-साली">3. जीजा-साली</option>
-                <option value="ऑफिस रोमांस">4. ऑफिस रोमांस</option>
-                <option value="बॉस और सेक्रेटरी">5. बॉस और सेक्रेटरी</option>
-                <option value="कॉलेज के दिन">6. कॉलेज के दिन</option>
-                <option value="पड़ोसन">7. पड़ोसन</option>
-                <option value="टीचर-स्टूडेंट">8. टीचर-स्टूडेंट</option>
-                <option value="डॉक्टर-पेशेंट">9. डॉक्टर-पेशेंट</option>
-                <option value="नौकरानी">10. नौकरानी</option>
-                <option value="आंटी">11. आंटी</option>
-                <option value="कजिन">12. कजिन</option>
-                <option value="फैंटेसी">13. फैंटेसी</option>
-                <option value="लेस्बियन">14. लेस्बियन</option>
-                <option value="गे">15. गे</option>
-                <option value="थ्रीसम">16. थ्रीसम</option>
-                <option value="ग्रुप सेक्स">17. ग्रुप सेक्स</option>
-                <option value="बीड़ीएसएम">18. बीड़ीएसएम</option>
-                <option value="रोल प्ले">19. रोल प्ले</option>
-                <option value="हॉट वाइफ">20. हॉट वाइफ</option>
-                <option value="ककहोल्ड">21. ककहोल्ड</option>
-                <option value="वर्जिनिटी">22. वर्जिनिटी</option>
-                <option value="हनीमून">23. हनीमून</option>
-                <option value="अनजान अजनबी">24. अनजान अजनबी</option>
-                <option value="मसाज पार्लर">25. मसाज पार्लर</option>
-                <option value="देसी गांव">26. देसी गांव</option>
-                <option value="ट्रेन का सफर">27. ट्रेन का सफर</option>
-                <option value="बस की सवारी">28. बस की सवारी</option>
-                <option value="होटल रूम">29. होटल रूम</option>
-                <option value="बाथरूम रोमांस">30. बाथरूम रोमांस</option>
-                <option value="स्विमिंग पूल">31. स्विमिंग पूल</option>
-                <option value="बारिश की रात">32. बारिश की रात</option>
-                <option value="ब्लैकमेल">33. ब्लैकमेल</option>
-                <option value="रिवेंज">34. रिवेंज</option>
-                <option value="धोखेबाज पति/पत्नी">35. धोखेबाज पति/पत्नी</option>
-                <option value="मिलफ (MILF)">36. मिलफ (MILF)</option>
-                <option value="शुगर डैडी">37. शुगर डैडी</option>
-                <option value="ऑडियो स्टोरी">38. ऑडियो स्टोरी</option>
-                <option value="वीडियो स्टोरी">39. वीडियो स्टोरी</option>
-                <option value="फोटो गैलरी">40. फोटो गैलरी</option>
-                <option value="कामुक कविताएँ">41. कामुक कविताएँ</option>
-                <option value="सच्ची घटनाएँ">42. सच्ची घटनाएँ</option>
-                <option value="हॉरर और सेक्स">43. हॉरर और सेक्स</option>
-                <option value="सस्पेंस थ्रिलर">44. सस्पेंस थ्रिलर</option>
-                <option value="विदेशी">45. विदेशी</option>
-                <option value="जिम ट्रेनर">46. जिम ट्रेनर</option>
-                <option value="डिलीवरी बॉय">47. डिलीवरी बॉय</option>
-                <option value="सहेली की माँ">48. सहेली की माँ</option>
-                <option value="दोस्त की बहन">49. दोस्त की बहन</option>
-                <option value="गुप्त रिश्ते">50. गुप्त रिश्ते</option>
-            </select>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><span style="color: white;">⚙️ Admin</span> Dashboard</h1>
+            <p>यहाँ से अपनी नई कहानियाँ वेबसाइट पर अपलोड करें</p>
+        </div>
 
-            <textarea id="content" rows="12" placeholder="अपनी कहानी यहाँ लिखें..." required></textarea>
+        <!-- कहानी अपलोड करने पर दिखने वाला सक्सेस मेसेज -->
+        <div id="successMessage">
+            ✅ आपकी कहानी सफलतापूर्वक वेबसाइट पर पब्लिश हो गई है!
+        </div>
+
+        <!-- कहानी अपलोड करने का फॉर्म -->
+        <form id="uploadStoryForm">
             
-            <button type="submit" class="btn btn-theme">पोस्ट पब्लिश करें</button>
+            <div class="form-group">
+                <label>कहानी का शीर्षक (Title)</label>
+                <input type="text" id="storyTitle" placeholder="उदाहरण: बारिश की वो हसीन रात..." required>
+            </div>
+
+            <div class="form-group">
+                <label>कहानी की केटेगरी चुनें</label>
+                <select id="storyCategory" required>
+                    <option value="">-- केटेगरी चुनें --</option>
+                    <option value="पहली रात">पहली रात</option>
+                    <option value="देवर-भाभी">देवर-भाभी</option>
+                    <option value="ऑफिस रोमांस">ऑफिस रोमांस</option>
+                    <option value="पड़ोसन">पड़ोसन</option>
+                    <option value="हनीमून">हनीमून</option>
+                    <option value="टीचर-स्टूडेंट">टीचर-स्टूडेंट</option>
+                    <option value="मसाज पार्लर">मसाज पार्लर</option>
+                    <option value="रोल प्ले">रोल प्ले</option>
+                    <option value="थ्रीसम">थ्रीसम</option>
+                    <option value="फैंटेसी">अन्य (फैंटेसी)</option>
+                    <!-- आप यहाँ और भी केटेगरी जोड़ सकते हैं -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>पूरी कहानी यहाँ लिखें (Content)</label>
+                <textarea id="storyContent" rows="15" placeholder="यहाँ अपनी पूरी कहानी टाइप करें या पेस्ट करें..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="publishBtn">🚀 कहानी पब्लिश करें</button>
+            
         </form>
     </div>
 
+    <!-- JavaScript जो आपकी कहानी को बैकएंड सर्वर पर भेजती है -->
     <script>
-        document.getElementById('createPostForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const newPost = {
-                title: document.getElementById('title').value,
-                category: document.getElementById('category').value,
-                content: document.getElementById('content').value
-            };
-            const response = await fetch('/api/posts', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newPost)
-            });
-            if (response.ok) {
-                alert('पोस्ट पब्लिश हो गई!');
-                window.location.href = 'index.html';
+        const form = document.getElementById('uploadStoryForm');
+        const publishBtn = document.getElementById('publishBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', async function(event) {
+            // पेज को रीफ्रेश होने से रोकना
+            event.preventDefault();
+
+            // फॉर्म से डेटा उठाना
+            const title = document.getElementById('storyTitle').value;
+            const category = document.getElementById('storyCategory').value;
+            const content = document.getElementById('storyContent').value;
+
+            // बटन का टेक्स्ट बदलना ताकि पता चले कि काम हो रहा है
+            publishBtn.innerText = "⏳ पब्लिश हो रहा है...";
+            publishBtn.style.background = "#555";
+            publishBtn.disabled = true;
+
+            // बैकएंड सर्वर (Node.js) को डेटा भेजना
+            try {
+                const response = await fetch('/api/posts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        category: category,
+                        content: content,
+                        mediaType: 'story' // डिफ़ॉल्ट रूप से यह एक कहानी है
+                    })
+                });
+
+                if (response.ok) {
+                    // अगर सर्वर ने कहानी सेव कर ली
+                    successMessage.style.display = 'block';
+                    form.reset(); // फॉर्म को खाली कर देना
+                    
+                    // 3 सेकंड बाद सक्सेस मेसेज हटाना
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert("❌ कुछ गलती हो गई! सर्वर से कनेक्ट नहीं हो पाया।");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("❌ एरर! कृपया सुनिश्चित करें कि आपका Node.js सर्वर चल रहा है।");
+            } finally {
+                // बटन को वापस नार्मल करना
+                publishBtn.innerText = "🚀 कहानी पब्लिश करें";
+                publishBtn.style.background = "#ff007f";
+                publishBtn.disabled = false;
             }
         });
     </script>
+
 </body>
 </html>
